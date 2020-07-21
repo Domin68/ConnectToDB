@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PrintTable {
     /**
-     * @param selectTableToPrint stands for table in database
+     * @param selectTableToPrint stands for table in SQL database
      */
     private String selectTableToPrint;
     /**
@@ -21,7 +21,7 @@ public class PrintTable {
      */
     public void setSelectTableToPrint() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Tables to choose:\n1.\"auta\" for Car List\n2.\"klienci\" for Clients\n3.\"wypozyczenia\" for Transactions");
+        System.out.println("Tables to choose:\n1.\"auta\" for Car List\n2.\"klienci\" for Client List\n3.\"wypozyczenia\" for Transactions");
         int choose=scan.nextInt();
         switch (choose){
             case 1:
@@ -65,9 +65,10 @@ public class PrintTable {
             while(rs.next())
                 switch (selectTableToPrint) {
                     case "auta":
-                        System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  "
-                                + rs.getString(3) + "  " + rs.getInt(4) +
-                                "  " + rs.getInt(5) + "  " + rs.getString(6) + "  " + rs.getInt(7));
+                        System.out.println(rs.getInt(1) + ". " + rs.getString(2) + " "
+                                + rs.getString(3) + ", " + rs.getInt(4) +
+                                "km, " + rs.getInt(5) + ", " + rs.getString(6) + ", " + rs.getInt(7)
+                        + " PLN");
                         break;
                     case "klienci":
                         System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  "
